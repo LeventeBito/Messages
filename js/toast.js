@@ -8,7 +8,7 @@ toast.js may be freely distributed under the MIT license.
 	function Toast( options ){
 
 		this.timeout_id = null;
-		this.duration = 3000;
+		this.duration = 6000;
 		this.content = '';
 		this.position = 'bottom';
 
