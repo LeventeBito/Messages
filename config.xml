@@ -9,7 +9,7 @@
 
     <name>Dialog Demo</name>
         
-        <plugin name="cordova-plugin-dialogs"/>
+        
 
     <description>
         A dialog, notification and toast message demonstration application
@@ -22,6 +22,6 @@
 	
 	
 	<!-- required plugins go here -->
-	     
+	     <plugin name="cordova-plugin-dialogs"/>
 
 </widget>
