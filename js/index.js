@@ -45,14 +45,14 @@ function createDialog() {
         	
 function dialogDismissed(buttonIndex) {
 	
-	if(buttonIndex==1) new Toast({content: "I don't care!", duration: 6000}); 
+	if(buttonIndex==1) {new Toast({content: "I don't care!", duration: 6000}); createNotification;}
    	else if(buttonIndex==2) new Toast({content: "I still don't care", duration: 6000});
 
 }
 
  
    
-function createNotification(title, message, notficationTime) {
+function createNotification() {
         		
 		//
         //generate a time to post notification
