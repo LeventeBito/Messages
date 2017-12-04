@@ -45,7 +45,7 @@ function createDialog() {
         	
 function dialogDismissed(buttonIndex) {
 	
-	if(buttonIndex==1) {new Toast({content: "I don't care!", duration: 6000}); createNotification();}
+	if(buttonIndex==1) {new Toast({content: "I don't care!", duration: 6000}); hungryNotification();}
    	else if(buttonIndex==2) new Toast({content: "I still don't care", duration: 6000});
 
 }
@@ -66,6 +66,25 @@ function createNotification() {
     	id: 		1,
         title: 		"Hey",
         message: 	"Example notification",
+        date: 		notificationTime, 
+        badge: 		notification_count++
+   	});
+    
+}
+function hungryNotification() {
+        		
+		//
+        //generate a time to post notification
+        //
+        var currentTime = new Date().getTime(); //current time
+        var notificationTime = new Date(currentTime + 30000); //delayed time  - add 1 second	
+    //
+    //setup notification
+    //
+    cordova.plugins.notification.local.schedule({ 
+    	id: 		1,
+        title: 		"Are you still hungry?",
+        message: 	"I still really don't care",
         date: 		notificationTime, 
         badge: 		notification_count++
    	});
