@@ -12,7 +12,11 @@ $(document).on('pageinit', function() {
 
 
 	$('#notificationButton').on('click', function() {
-		createNotification();
+        
+        
+        
+        
+		createNotification("Title", "Message", notificationTime);
 	});
 
 
@@ -45,29 +49,35 @@ function createDialog() {
         	
 function dialogDismissed(buttonIndex) {
 	
-	if(buttonIndex==1) new Toast({content: "I don't care!", duration: 6000}) new createNotification;
+	if(buttonIndex==1) {
+        new Toast({content: "I don't care!", duration: 6000}); 
+        createNotification("Title", "Message", scheduleTime(30000));
+    
+    }
    	else if(buttonIndex==2) new Toast({content: "I still don't care", duration: 6000});
 
 }
 
+ function scheduleTime(delay) {
+     //
+        //generate a time to post notification
+        //
+        var currentTime = new Date().getTime(); //current time
+        var notificationTime = new Date(currentTime + delay); //delayed time  - add 1 second
+        return notificationTime;
+ }  
+
    
-   
-function createNotification() {
+function createNotification(title, message, notficationTime) {
         		
-	//
-    //generate a time to post notification
-    //
-    var currentTime = new Date().getTime(); //current time
-    var notificationTime = new Date(currentTime + 1000); //delayed time  - add 1 second
-    			
+			
     //
     //setup notification
     //
-    
     cordova.plugins.notification.local.schedule({ 
     	id: 		1,
-        title: 		"Hey you",
-        message: 	"This is an example notification",
+        title: 		title,
+        message: 	message,
         date: 		notificationTime, 
         badge: 		notification_count++
    	});
