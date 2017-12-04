@@ -8,6 +8,8 @@
     <!-- versionCode is optional and Android only -->
 
     <name>Dialog Demo</name>
+        
+        <plugin name="cordova-plugin-dialogs"/>
 
     <description>
         A dialog, notification and toast message demonstration application
